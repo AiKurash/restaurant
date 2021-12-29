@@ -5,11 +5,12 @@
 /* universal */
 
 body {
-  padding-top: 60px;
+  height: 100%;
+  background-color: #b0e0e6;
 }
 
 section {
-  overflow: auto;
+
 }
 
 textarea {
@@ -68,4 +69,17 @@ p {
 #logo:hover {
   color: #fff;
   text-decoration: none;
+}
+
+.navbar {
+  background-color: #5f9ea0 !important;
+}
+
+#page-content {
+  flex: 1 0 auto;
+  background-color: #b0e0e6;
+}
+
+#sticky-footer {
+  flex-shrink: none;
 }
