@@ -1,10 +1,9 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
+@import 'bootstrap/dist/css/bootstrap';
 
 
 /* universal */
 
-body {
+html, body {
   height: 100%;
   background-color: #b0e0e6;
 }
@@ -15,32 +14,6 @@ section {
 
 
 
-/* typography */
-
-h1, h2, h3, h4, h5, h6 {
-  line-height: 1;
-}
-
-h1 {
-  font-size: 3em;
-  letter-spacing: -2px;
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-h2 {
-  font-size: 1.2em;
-  letter-spacing: -1px;
-  margin-bottom: 30px;
-  text-align: center;
-  font-weight: normal;
-  color: #777;
-}
-
-p {
-  font-size: 1.1em;
-  line-height: 1.7em;
-}
 
 
 /* header */
@@ -79,7 +52,7 @@ p {
 
 .navbar .button {
   color: black;
-  background-color: gray; 
+  background-color: gray;
 }
 #page-content {
   flex: 1 0 auto;
@@ -123,3 +96,10 @@ p {
     margin-right: 1em; }
   .flickr_pagination .next_page {
     margin-left: 1em; }
+
+/* categories button */
+
+.custom_button {
+  background-color: gray;
+  outline-color: white;
+}
