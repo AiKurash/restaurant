@@ -11,6 +11,11 @@ class ArticlesController < ApplicationController
     @articles = Article.paginate(page: params[:page], per_page: 5)
   end
 
+  def index1
+    @q = Article.ransack(params[:q])
+    @articles = @q.result(distinct: true)
+  end
+
   def new
     @article = Article.new
 
