@@ -10,4 +10,10 @@ class User < ApplicationRecord
                       length: { maximum: 105 },
                       format: { with: VALID_EMAIL_REGEX }
   has_secure_password
+
+  belongs_to :role
+
+  before_validation do
+    self.role ||= Role.find_by(name: "customer")
+  end
 end

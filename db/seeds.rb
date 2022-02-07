@@ -7,7 +7,18 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-50.times do |x|
-    Article.create(title: Faker::Lorem.sentences(number: 1),
-        description: Faker::Lorem.paragraph(sentence_count: 5))
+Role.find_or_create_by!(name: "customer") do |r|
+  r.read_posts = true
+end
+
+Role.find_or_create_by!(name: "fieldcrew") do |r|
+  r.create_posts = true
+  r.read_posts = true
+  r.update_posts = true
+  r.delete_posts = true
+end
+
+Role.find_or_create_by!(name: "manager") do |r|
+  r.read_posts = true
+  r.update_posts = true
 end
