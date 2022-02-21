@@ -12,17 +12,26 @@ default: &default
 development:
   adapter: postgresql
   encoding: UTF8
-  database: elevation_cert_d
+  database: restaurant_development
   host: localhost
   pool: 5
-  username: postgres
-  password: Akira123!
+  username: <%= ENV['RESTAURANT_DATABASE_USER'] %>
+  password: <%= ENV['RESTAURANT_DATABASE_PASSWORD'] %>
 
 production:
   adapter: postgresql
   encoding: UTF8
-  database: elevation_cert_p
+  database: restaurant_production
   host: localhost
   pool: 5
-  username: postgres
-  password: Akira123!
+  username: <%= ENV['RESTAURANT_DATABASE_USER'] %>
+  password: <%= ENV['RESTAURANT_DATABASE_PASSWORD'] %>
+
+test:
+  adapter: postgresql
+  encoding: UTF8
+  database: restaurant_test
+  host: localhost
+  pool: 5
+  username: <%= ENV['RESTAURANT_DATABASE_USER'] %>
+  password: <%= ENV['RESTAURANT_DATABASE_PASSWORD'] %>

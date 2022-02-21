@@ -1,5 +1,5 @@
 {
-  "name":"elevation_cert",
+  "name":"restaurant",
   "private": true,
   "dependencies": {
     "@rails/actioncable": "^6.0.0",

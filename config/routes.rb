@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  get 'pages/home'
+  get 'pages/catering'
+  get 'pages/info'
   resources :roles
-  root 'static_pages#home'
+  root 'cert_categories#index'
   get 'help', to: 'static_pages#help'
   get 'about', to: 'static_pages#about'
   resources :articles, except: [:index1]
