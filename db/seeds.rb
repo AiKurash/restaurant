@@ -7,18 +7,47 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Role.find_or_create_by!(name: "customer") do |r|
-  r.read_posts = true
-end
+User.create!(username: 'admin4',
+            email: 'admin4@example.com',
+             password: 'password',
+             password_confirmation: 'password',
+             admin: true)
 
-Role.find_or_create_by!(name: "fieldcrew") do |r|
-  r.create_posts = true
-  r.read_posts = true
-  r.update_posts = true
-  r.delete_posts = true
-end
+ProductCategory.create!(heading: 'Pizza', body: "It's so good, dough!", display: true)
+ProductCategory.create!(heading: 'Pasta', body: 'We cannoli do so much in each vide', display: true)
+ProductCategory.create!(heading: 'Desserts', body: 'Rock rails icecream', display: true)
 
-Role.find_or_create_by!(name: "manager") do |r|
-  r.read_posts = true
-  r.update_posts = true
+10.times do |i|
+  pizza = Product.new(
+    name: 'Pizza',
+    description: 'Lorem ipsum bbq chicken upstate newyork free range dough',
+    price: 11.99,
+    catering: true,
+    product_category: ProductCategory.find(1)
+  )
+  pasta = Product.new(
+    name: 'Pasta',
+    description: 'Lorem ipsum bbq chicken upstate newyork free range dough',
+    price: 7.95,
+    catering: true,
+    product_category: ProductCategory.find(2)
+  )
+  dessert = Product.new(
+    name: 'Icecream',
+    description: 'Lorem ipsum bbq chicken upstate newyork free range dough',
+    price: 3.00,
+    catering: true,
+    product_category: ProductCategory.find(3)
+  )
+  pizza.image.attach(io: open('https://picsum.photos/1920/1080'), filename: "#{i}_pizza_image.jpg")
+  pasta.image.attach(io: open('https://picsum.photos/1920/1080'), filename: "#{i}_pasta_image.jpg")
+  dessert.image.attach(io: open('https://picsum.photos/1920/1080'), filename: "#{i}_dessert_image.jpg")
+  if i == 5
+    pizza.featured = true
+    pasta.featured = true
+    dessert.featured = true
+  end
+  pizza.save
+  pasta.save
+  dessert.save
 end

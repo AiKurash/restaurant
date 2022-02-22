@@ -1,12 +1,10 @@
 class ArticlesController < ApplicationController
-  include Pundit
+
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   before_action :require_user, except: [:show, :index]
   before_action :require_same_user, only: [:edit, :update, :destroy]
 
-  rescue_from Pundit::NotAuthorizedError do
-    redirect_to root_path, alert: "You aren't allowed to do that"
-  end
+
 
 
 
@@ -15,8 +13,9 @@ class ArticlesController < ApplicationController
   end
 
   def index
+
     @articles = Article.paginate(page: params[:page], per_page: 5)
-    authorize @articles
+
   end
 
   def index1
@@ -35,7 +34,6 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
-    authorize @article
 
     @article.user = current_user
     if @article.save
@@ -66,7 +64,7 @@ class ArticlesController < ApplicationController
 
  def set_article
    @article = Article.find(params[:id])
-   authorize @article
+
  end
 
  def article_params

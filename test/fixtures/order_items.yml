@@ -2,8 +2,14 @@
 
 one:
   quantity: 1
-  price: 9.99
+  product: one
+  order: one
+  total: 9.99
+  unit_price: 9.99
 
 two:
   quantity: 1
-  price: 9.99
+  product: two
+  order: two
+  total: 9.99
+  unit_price: 9.99

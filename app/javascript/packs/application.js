@@ -15,3 +15,7 @@ ActiveStorage.start()
 
 //= require jquery
 //= require bootstrap-sprockets
+import "./src/application.scss"
+global.$ = jQuery
+
+require("jquery")
